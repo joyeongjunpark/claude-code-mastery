@@ -1,0 +1,26 @@
+{
+  "name": "business-planner-resume",
+  "version": "1.0.0",
+  "description": "LG 전자 공간사업기획팀 사원의 인터랙티브 웹 이력서",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run tailwind:watch & npm run serve",
+    "serve": "npx http-server -p 8000 -o",
+    "build": "npm run tailwind:build",
+    "tailwind:watch": "tailwindcss -i ./styles/input.css -o ./styles/tailwind.css --watch",
+    "tailwind:build": "tailwindcss -i ./styles/input.css -o ./styles/tailwind.css --minify"
+  },
+  "keywords": [
+    "resume",
+    "portfolio",
+    "business-planning"
+  ],
+  "author": "Jin Ho Kim",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.17",
+    "http-server": "^14.1.1"
+  }
+}

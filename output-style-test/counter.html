@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운터 앱</title>
+    <!-- Tailwind CSS를 인터넷에서 가져오는 CDN 링크 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- 전체 페이지를 가운데 정렬하고 회색 배경으로 만드는 컨테이너 -->
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+        <!-- 카운터 앱의 메인 박스: 흰색 배경, 그림자, 둥근 모서리 -->
+        <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+            <!-- 제목 -->
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">카운터 앱</h1>
+
+            <!-- 숫자를 보여주는 영역 -->
+            <!-- 배경색을 파란색 계열(파란색 100번), 텍스트를 큰 숫자로 표시 -->
+            <div class="bg-blue-100 rounded-lg p-8 mb-8 text-center">
+                <p class="text-gray-600 text-lg mb-2">현재 카운트</p>
+                <!-- id="count"를 사용하여 JavaScript에서 이 요소를 찾을 수 있습니다 -->
+                <p id="count" class="text-6xl font-bold text-blue-600">0</p>
+            </div>
+
+            <!-- 버튼들을 담는 컨테이너: 3개 버튼을 세로로 배치 -->
+            <div class="space-y-3">
+                <!-- 증가 버튼: 파란색(파란색 600번), 마우스 호버 시 더 진한 파란색(파란색 700번) -->
+                <button
+                    onclick="increaseCount()"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                >
+                    증가 (+1)
+                </button>
+
+                <!-- 감소 버튼: 파란색 계열이지만 조금 옅은 파란색(파란색 500번) -->
+                <button
+                    onclick="decreaseCount()"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                >
+                    감소 (-1)
+                </button>
+
+                <!-- 리셋 버튼: 회색으로 구분하기 쉽게 표시 -->
+                <button
+                    onclick="resetCount()"
+                    class="w-full bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                >
+                    리셋
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 코드: 카운터의 동작을 담당합니다 -->
+    <script>
+        // 현재 카운트 값을 저장하는 변수 (처음에는 0)
+        let currentCount = 0;
+
+        // 증가 버튼을 클릭했을 때 실행되는 함수
+        function increaseCount() {
+            // 카운트를 1 증가시킵니다
+            currentCount++;
+            // HTML 화면에 새로운 숫자를 표시합니다
+            updateDisplay();
+        }
+
+        // 감소 버튼을 클릭했을 때 실행되는 함수
+        function decreaseCount() {
+            // 카운트를 1 감소시킵니다
+            currentCount--;
+            // HTML 화면에 새로운 숫자를 표시합니다
+            updateDisplay();
+        }
+
+        // 리셋 버튼을 클릭했을 때 실행되는 함수
+        function resetCount() {
+            // 카운트를 다시 0으로 돌립니다
+            currentCount = 0;
+            // HTML 화면에 새로운 숫자를 표시합니다
+            updateDisplay();
+        }
+
+        // 화면에 표시되는 숫자를 업데이트하는 함수
+        function updateDisplay() {
+            // id가 "count"인 요소(위에서 만든 <p id="count">)를 찾습니다
+            const countElement = document.getElementById('count');
+            // 그 요소의 텍스트를 현재 카운트 값으로 바꿉니다
+            countElement.textContent = currentCount;
+        }
+    </script>
+</body>
+</html>

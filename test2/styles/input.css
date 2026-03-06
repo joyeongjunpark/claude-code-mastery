@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LG 공식 브랜드 색상 */
+:root {
+  --lg-red: #FD312E;
+  --lg-red-heritage: #A50034;
+  --lg-warm-gray: #F0ECE4;
+  --lg-black: #000000;
+  --lg-white: #FFFFFF;
+  --lg-text: #1a1a1a;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+/* 기본 글꼴 */
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* 커스텀 스타일 */
+@layer components {
+
+  /* 공통 버튼 스타일 */
+  .btn {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-red-600 text-white hover:bg-red-700 border-2 border-red-600;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-red-600 hover:bg-red-50 border-2 border-red-600;
+  }
+
+  /* 섹션 제목 스타일 */
+  .section-title {
+    @apply text-4xl font-bold text-gray-900 dark:text-white mb-8 tracking-tight;
+  }
+
+  /* 카드 스타일 */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-red-600;
+  }
+
+  /* 경력 항목 */
+  .experience-item {
+    @apply border-l-4 border-red-600 pl-6 py-4;
+  }
+}
+
+/* 다크모드 CSS 변수 */
+@layer base {
+  :root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9fafb;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+  }
+
+  .dark {
+    --color-bg-primary: #111827;
+    --color-bg-secondary: #1f2937;
+    --color-text-primary: #f3f4f6;
+    --color-text-secondary: #d1d5db;
+  }
+}
+
+/* 스킬 프로그레스 바 */
+@layer components {
+  .skill-bar-track {
+    @apply h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden;
+  }
+
+  .skill-bar-fill {
+    @apply h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-700 ease-out;
+    width: 0%;
+  }
+
+  .skill-label {
+    @apply flex justify-between items-center mb-2;
+  }
+
+  .skill-percentage {
+    @apply text-sm font-semibold text-red-600 dark:text-red-400;
+  }
+
+  .skill-tag {
+    @apply inline-block px-3 py-1 mr-2 mb-2 text-sm bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full;
+  }
+
+  /* Education 타임라인 */
+  .timeline {
+    @apply relative;
+  }
+
+  .timeline::before {
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-indigo-500;
+    content: '';
+  }
+
+  .timeline-item {
+    @apply pl-8 pb-8 relative;
+  }
+
+  .timeline-dot {
+    @apply absolute left-0 top-2 w-3 h-3 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-md;
+  }
+
+  .timeline-content {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6;
+  }
+
+  /* 포트폴리오 카드 */
+  .portfolio-card {
+    @apply relative overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105;
+  }
+
+  .portfolio-card img {
+    @apply w-full h-48 object-cover transition-transform duration-500;
+  }
+
+  .portfolio-card:hover img {
+    @apply scale-105;
+  }
+
+  .portfolio-card-body {
+    @apply p-4 bg-white dark:bg-gray-800;
+  }
+
+  .portfolio-card-arrow {
+    @apply absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full opacity-0 transition-all duration-300;
+  }
+
+  .portfolio-card:hover .portfolio-card-arrow {
+    @apply opacity-100 translate-x-1;
+  }
+
+  /* 자격증 배지 */
+  .cert-badge {
+    @apply inline-block px-4 py-2 mr-2 mb-2 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg font-semibold;
+  }
+
+  /* 소셜 링크 */
+  .social-link {
+    @apply inline-flex items-center justify-center w-12 h-12 mx-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full transition-all duration-300 hover:bg-blue-600 hover:text-white;
+  }
+
+  /* 성과 배지 */
+  .achievement-badge {
+    @apply flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900 dark:to-indigo-900 rounded-lg border-2 border-blue-200 dark:border-blue-700;
+  }
+
+  /* 네비게이션 링크 */
+  .nav-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-300 font-medium;
+  }
+
+  .nav-link.active {
+    @apply text-red-600 dark:text-red-400 border-b-2 border-red-600 dark:border-red-400 pb-1;
+  }
+
+  /* 모달 스타일 */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center transition-opacity duration-300 opacity-0;
+  }
+
+  .modal-overlay.modal-visible {
+    @apply opacity-100;
+  }
+
+  .modal-overlay.hidden {
+    display: none;
+  }
+
+  .modal-container {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto transition-all duration-300 scale-95;
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  .modal-overlay.modal-visible .modal-container {
+    @apply scale-100;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .modal-close-btn {
+    @apply absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200;
+    z-index: 10;
+  }
+
+  .modal-body {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .modal-body h3 {
+    @apply text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4;
+  }
+
+  .modal-body p {
+    @apply text-gray-700 dark:text-gray-300 mb-2;
+  }
+}
+
+/* 네비게이션 스크롤 스타일 */
+nav.nav-scrolled {
+  @apply shadow-lg;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.dark nav.nav-scrolled {
+  background-color: rgba(31, 41, 55, 0.95);
+}
+
+/* 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 텍스트 선택 색상 */
+::selection {
+  @apply bg-blue-500 text-white;
+}

@@ -1,0 +1,197 @@
+/* 커스텀 CSS 파일 */
+
+/* 네비게이션 링크 스타일 */
+.nav-link {
+  position: relative;
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #3B82F6;
+}
+
+.nav-link.active {
+  color: #3B82F6;
+  border-bottom: 2px solid #3B82F6;
+}
+
+/* 하이라이트 효과 */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #3B82F6;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  nav,
+  #contact {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* 포트폴리오 카드 스타일 개선 */
+.portfolio-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card img {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.08);
+}
+
+.portfolio-card-body {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 스킬 네비게이션 아이콘 */
+.skill-nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.skill-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  border: 2px solid transparent;
+}
+
+.skill-nav-item:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+  border-color: #3B82F6;
+  transform: translateY(-4px);
+}
+
+.skill-nav-item.active {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: #3B82F6;
+}
+
+.dark .skill-nav-item:hover {
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.dark .skill-nav-item.active {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.skill-nav-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  transition: all 0.3s ease;
+  color: #374151;
+}
+
+.dark .skill-nav-icon {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.skill-nav-item:hover .skill-nav-icon,
+.skill-nav-item.active .skill-nav-icon {
+  background-color: #3B82F6;
+  color: white;
+}
+
+.skill-nav-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.dark .skill-nav-label {
+  color: #e5e7eb;
+}
+
+.skill-nav-item.active .skill-nav-label {
+  color: #3B82F6;
+}
+
+.dark .skill-nav-item.active .skill-nav-label {
+  color: #60a5fa;
+}
+
+/* 스킬 섹션 */
+.skill-section {
+  display: none;
+}
+
+.skill-section.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 접근성 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
